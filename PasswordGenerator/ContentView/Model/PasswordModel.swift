@@ -14,7 +14,7 @@ struct Password: Identifiable, Codable {
     var containsSymbols: Bool
     var containsUppercase: Bool
     
-    var passwordStrengthColor: Color {
+    var strengthColor: Color {
         var strength = 0
         var color: Color
         
@@ -26,7 +26,7 @@ struct Password: Identifiable, Codable {
         }
         if password.count > 12 {
             strength += 1
-        } else if password.count < 6 {
+        } else if password.count < 8 {
             strength -= 1
         }
         
@@ -35,7 +35,7 @@ struct Password: Identifiable, Codable {
         case 2: color = .yellow
         case 3: color = .red
         default:
-            color = .black
+            color = .gray
         }
     
         return color

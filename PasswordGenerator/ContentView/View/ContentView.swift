@@ -15,7 +15,7 @@ struct ContentView: View {
             Section("Options") {
                 Toggle("Symbols", isOn: $vm.containsSymbols)
                 Toggle("Uppercase", isOn: $vm.containsUppercase)
-                Stepper("Character count: \(vm.length)", value: $vm.length, in: 4...16)
+                Stepper("Character count: \(vm.length)", value: $vm.length, in: 6...18)
                 Button("Generate password", action: vm.createPassword)
                     .centerH()
                 
@@ -27,10 +27,8 @@ struct ContentView: View {
                             .padding()
                             .textSelection(.enabled)
                         Spacer()
-                        HStack {
-                            Image(systemName: "lock.fill")
-                                .foregroundColor(password.passwordStrengthColor)
-                        }
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(password.strengthColor)
                     }
                 }
             }
